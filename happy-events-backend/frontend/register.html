@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎉 Happy Events</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="register.html">Register</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h2>Create Your Account</h2>
+
+<form id="registerForm">
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Password" minlength="8" required>
+  <input type="text" name="phone" placeholder="Phone Number" required>
+  <button type="submit">Register</button>
+</form>
+
+<script>
+document.getElementById("registerForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const f = e.target;
+
+  const res = await fetch("http://localhost:5000/api/auth/register", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({
+      name:f.name.value,
+      email:f.email.value,
+      password:f.password.value,
+      phone:f.phone.value
+    })
+  });
+
+  const data = await res.json();
+  alert(data.message || data.error);
+});
+</script>
+
+<footer>© 2025 Happy Events</footer>
+
+</body>
+</html>

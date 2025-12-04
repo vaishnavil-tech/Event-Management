@@ -1,0 +1,35 @@
+<table border="1" style="width:100%; text-align:center; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Client Name</th>
+      <th>Date</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody id="eventsTableBody">
+  </tbody>
+</table>
+<script>
+    // Fetch all events and display
+async function loadEvents(){
+  const res = await fetch("http://localhost:5000/api/admin/events");
+  const events = await res.json();
+
+  const tableBody = document.getElementById("eventsTableBody");
+  tableBody.innerHTML = "";
+  events.forEach(event => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${event.eventName}</td>
+      <td>${event.clientName}</td>
+      <td>${new Date(event.eventDate).toLocaleDateString()}</td>
+      <td>${event.eventLocation}</td>
+    `;
+    tableBody.appendChild(tr);
+  });
+}
+
+window.onload = loadEvents;
+
+</script>

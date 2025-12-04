@@ -1,0 +1,11 @@
+{
+  "name": "happy-events-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^5.2.1",
+    "cors": "^2.8.5",
+    "bcryptjs": "^3.0.3"
+  }
+}
