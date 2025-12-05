@@ -1,0 +1,32 @@
+[
+  {
+    "eventName": "birthday",
+    "clientName": "scott",
+    "eventDate": "2025-12-26",
+    "eventLocation": "PUNE"
+  },
+  {
+    "eventName": "birthday",
+    "clientName": "scott",
+    "eventDate": "2025-12-26",
+    "eventLocation": "PUNE"
+  },
+  {
+    "eventName": "birthday",
+    "clientName": "scott",
+    "eventDate": "2025-12-26",
+    "eventLocation": "PUNE"
+  },
+  {
+    "eventName": "ANIVERSIRY",
+    "clientName": "SCOTT",
+    "eventDate": "2025-12-04",
+    "eventLocation": "NANDED"
+  },
+  {
+    "eventName": "deat aniversirry",
+    "clientName": "scott",
+    "eventDate": "2025-12-05",
+    "eventLocation": "pune"
+  }
+]

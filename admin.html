@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🎉 Admin Panel</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </nav>
+</header>
+
+<h2>Registered Users</h2>
+
+<table id="usersTable">
+  <tr>
+    <th>Name</th><th>Email</th><th>Phone</th><th>Password (Hashed)</th>
+  </tr>
+</table>
+
+<h2>Booked Events</h2>
+
+<table id="eventsTable">
+  <tr>
+    <th>Event</th><th>Client</th><th>Date</th><th>Location</th>
+  </tr>
+</table>
+
+<script>
+async function loadUsers(){
+  const res = await fetch("http://localhost:5000/api/admin/users");
+  const users = await res.json();
+  const table = document.getElementById("usersTable");
+
+  users.forEach(u=>{
+    table.innerHTML += `<tr>
+      <td>${u.name}</td>
+      <td>${u.email}</td>
+      <td>${u.phone}</td>
+      <td>${u.password}</td>
+    </tr>`;
+  });
+}
+
+async function loadEvents(){
+  const res = await fetch("http://localhost:5000/api/admin/events");
+  const events = await res.json();
+  const table = document.getElementById("eventsTable");
+
+  events.forEach(e=>{
+    table.innerHTML += `<tr>
+      <td>${e.eventName}</td>
+      <td>${e.clientName}</td>
+      <td>${e.eventDate}</td>
+      <td>${e.eventLocation}</td>
+    </tr>`;
+  });
+}
+
+loadUsers();
+loadEvents();
+</script>
+
+<footer>© 2025 Happy Events</footer>
+
+</body>
+</html>
